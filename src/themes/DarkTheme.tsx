@@ -4,6 +4,6 @@ import {useStyles} from "../hooks/useStyles";
 const styles = require('./dark.theme.less');
 
 export default function DarkTheme() {
-  useStyles(styles);
+  useStyles(styles.default);
   return null;
 }
