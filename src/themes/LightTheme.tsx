@@ -1,8 +1,9 @@
 import * as React from 'react';
-import styles from './light.theme.less';
-import { useApplyStyles } from '../theming';
+import {useStyles} from "../hooks/useStyles";
 
-export default function DarkTheme() {
-  useApplyStyles(styles);
+const styles = require('./light.theme.less');
+
+export default function LightTheme() {
+  useStyles(styles.default);
   return null;
 }

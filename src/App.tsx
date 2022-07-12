@@ -15,19 +15,14 @@ const options = themes.map((theme) => ({
 
 export default function App() {
   const [themeId, setThemeId] = useState(defaultTheme.id);
-  const selectThemeId = useCallback(
-    (option) => setThemeId(option as string),
-    []
-  );
-
   return (
     <>
-      <DynamicTheme themes={themes} value={themeId} />
+      <DynamicTheme value={themeId} />
       <Select
         value={themeId}
         style={{ minWidth: 200 }}
         options={options}
-        onSelect={selectThemeId}
+        onSelect={(id: string) => setThemeId(id)}
       />
       <DemoTable />
     </>

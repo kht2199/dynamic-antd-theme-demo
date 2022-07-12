@@ -1,8 +1,9 @@
 import * as React from 'react';
-import styles from './light-compact.theme.less';
-import { useApplyStyles } from '../theming';
+import {useStyles} from "../hooks/useStyles";
+
+const styles = require('./light-compact.theme.less');
 
 export default function LightCompactTheme() {
-  useApplyStyles(styles);
+  useStyles(styles);
   return null;
 }

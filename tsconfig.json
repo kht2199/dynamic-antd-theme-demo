@@ -19,5 +19,8 @@
         "utils"
       ]
     }
-  }
+  },
+  "include": [
+    "globals.d.ts"
+  ]
 }

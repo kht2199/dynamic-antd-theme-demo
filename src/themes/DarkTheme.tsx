@@ -1,8 +1,9 @@
 import * as React from 'react';
-import styles from './dark.theme.less';
-import { useApplyStyles } from '../theming';
+import {useStyles} from "../hooks/useStyles";
+
+const styles = require('./dark.theme.less');
 
 export default function DarkTheme() {
-  useApplyStyles(styles);
+  useStyles(styles);
   return null;
 }

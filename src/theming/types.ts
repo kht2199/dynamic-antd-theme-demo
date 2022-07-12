@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import {ComponentType, LazyExoticComponent} from 'react';
 
 export interface LazyStyle {
   use: () => void;
@@ -8,6 +8,5 @@ export interface LazyStyle {
 export interface Theme {
   id: string;
   displayName: string;
-  filename: string,
-  component: ReactNode;
+  component: LazyExoticComponent<ComponentType<any>>;
 }

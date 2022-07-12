@@ -1,26 +1,19 @@
 import * as React from 'react';
-import { ReactChildren, Suspense, useEffect } from 'react';
-import { LazyStyle, Theme } from './types';
+import {Suspense, useMemo} from 'react';
 import LoadingIndicator from './LoadingIndicator';
-
-export function useApplyStyles(styles: LazyStyle): void {
-  useEffect(() => {
-    styles.use();
-    return () => styles.unuse();
-  });
-}
+import {themes} from '../themes';
 
 interface DynamicThemeProps {
-  themes: Theme[],
-  value: string,
+    value: string,
 }
 
-export default function DynamicTheme({ themes, value }: DynamicThemeProps) {
-  const Component = themes.find(theme => theme.id === value)?.component;
-
-  return (
-    <Suspense fallback={<LoadingIndicator tip="loading" />}>
-      <Component />
-    </Suspense>
-  );
+export default function DynamicTheme({value}: DynamicThemeProps) {
+    const theme = useMemo(() => themes.find(theme => theme.id === value), [value]);
+    if (!theme) return null;
+    const Component = theme.component;
+    return (
+        <Suspense fallback={<LoadingIndicator tip="loading"/>}>
+            <Component />
+        </Suspense>
+    );
 }
